@@ -113,6 +113,16 @@ function webtv_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar Right', 'webtv' ),
+		'id'            => 'sidebar-right',
+		'description'   => esc_html__( 'Add widgets here.', 'webtv' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 add_action( 'widgets_init', 'webtv_widgets_init' );
 
@@ -121,6 +131,8 @@ add_action( 'widgets_init', 'webtv_widgets_init' );
  */
 function webtv_scripts() {
 	wp_enqueue_style( 'webtv-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'webtv-style-reset', get_template_directory_uri() . '/css/reset.css' );
+	wp_enqueue_style( 'webtv-style-template', get_template_directory_uri() . '/css/template.css' );
 
 	wp_enqueue_script( 'webtv-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
@@ -129,6 +141,8 @@ function webtv_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	wp_enqueue_script( 'webtv-script', get_template_directory_uri() . '/js/script.js', array(), '20151215', true );
 }
 add_action( 'wp_enqueue_scripts', 'webtv_scripts' );
 
@@ -158,4 +172,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-

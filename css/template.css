@@ -1,0 +1,114 @@
+body {
+  font-family: "Roboto";
+}
+
+header.site-header {
+  height: 120px;
+}
+
+aside#secondary {
+  display: block;
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  padding-top: 50px;
+
+}
+
+#primary-menu ul li {
+  display: block;
+  width: 100%;
+}
+
+#primary-menu ul li a {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  height: 40px;
+  padding: 10px;
+  padding-left: 20px;
+}
+
+#primary-menu ul li.current_page_item a:after {
+	content: '';
+	border-bottom: solid white 1px;
+	display:block;
+	width: 90%;
+}
+
+
+#primary-menu ul li:not(.current_page_item) a:after {
+  content: '';
+  border-bottom: solid white 1px;
+  display:block;
+  margin-top: 2px;
+  width: 2px;
+  transition: width 1s;
+}
+
+#primary-menu ul li a:hover:after {
+  width: 90%;
+}
+
+main {
+  margin-left: 200px;
+  display: flex;
+}
+
+main article {
+  flex: 1;
+}
+
+main aside {
+  width: 300px;
+}
+
+.entry-content {
+	margin: 0;
+}
+
+.page-template-default article {
+  color: white;
+}
+
+.page-template-default h1, .page-template-default h2, .page-template-default h3, .page-template-default h4, .page-template-default h5, .page-template-default h6 {
+  margin-bottom: 50px;
+}
+
+.page-template-default h1 {
+  font-size: 4em;
+}
+.page-template-default h2 {
+  font-size: 3em;
+}
+.page-template-default h3 {
+  font-size: 2em;
+}
+.page-template-default h4 {
+  font-size: 1.6em;
+}
+.page-template-default h5 {
+  font-size: 1.4em;
+}
+
+.page-template-default p {
+  line-height: 2em;
+}
+
+#twitch-embed {
+  position: relative;
+  padding-bottom: 56.25%; /*16:9*/
+  height: 0;
+  overflow: hidden;
+}
+
+#twitch-embed iframe,
+#twitch-embed object,
+#twitch-embed embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

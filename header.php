@@ -16,6 +16,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 	<?php wp_head(); ?>
 </head>
@@ -37,22 +38,18 @@
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 				<?php
 			endif;
-			$webtv_description = get_bloginfo( 'description', 'display' );
-			if ( $webtv_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $webtv_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
+			?>
 		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'webtv' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
+		<?php $tv_options = get_option( 'tv_options' ); ?>
+		<?php if ( ! empty( $tv_options ) ) : ?>
+			<ul class="social-network">
+				<?php if ( ! empty( $tv_options['facebook'] ) ) : ?>
+					<li><i class="fab fa-facebook-f"></i></li>
+				<?php endif; ?>
+			</ul>
+		<?php endif; ?>
+
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
