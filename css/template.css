@@ -12,7 +12,25 @@ aside#secondary {
   width: 200px;
   height: 100%;
   padding-top: 50px;
+  top: 0;
+}
 
+aside#secondary ul.social-network {
+  display: flex;
+  flex-direction: row;
+}
+
+
+aside#secondary ul.social-network li {
+  padding: 10px;
+}
+
+aside#secondary .custom-logo-link {
+  height: 120px;
+}
+
+#primary-menu {
+  height: 70vh;
 }
 
 #primary-menu ul li {
